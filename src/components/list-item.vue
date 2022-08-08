@@ -2,6 +2,7 @@
 	<li class="list-item" @contextmenu.prevent="showControl" v-if="listItem">
 		<slot></slot>
 		<!-- 右键菜单，删除和取消 -->
+		<!-- <div>{{ beta }}</div> -->
 		<div v-if="listControl" class="list-control">
 			<span @click="deleteControl">delete</span>
 			<span @click="cancelControl">cancel</span>
@@ -40,11 +41,12 @@ export default {
 		},
 		deleteControl() {
 			this.listItem = false
-			console.log(this.beta);
+			console.log('del before', this.beta);
+			// console.log('item', this.item);
 			var index = this.beta.indexOf(this.item);
-			console.log('index', index);
+			// console.log('index', index);
 			this.beta.splice(index, 1)
-			console.log('after', this.beta);
+			console.log('del after', this.beta);
 			// this.$emit('deleteitem', this.tolistitem)
 		}
 	}

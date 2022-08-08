@@ -1,6 +1,9 @@
 <template>
 	<div id='app'>
-		<router-link to="/">首页</router-link>
+		<div class="nav">
+			<router-link to="/" tag="button">首页</router-link>
+		</div>
+
 		<!-- <router-link to="/detail">详情</router-link> -->
 
 		<router-view></router-view>
@@ -18,4 +21,8 @@ export default {
 </script>
 
 <style scoped>
+.nav {
+	margin-top: 20px;
+	text-align: center;
+}
 </style>

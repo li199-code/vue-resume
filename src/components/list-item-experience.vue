@@ -1,5 +1,5 @@
 <template>
-	<ListItem class="list-item-experience" :beta="beta">
+	<ListItem class="list-item-experience" :item="data" :beta="beta">
 		<div class="heading">
 			<div class="company">
 				<span contenteditable="true" @input="contentChange('company', $event)" v-html="data.company" />

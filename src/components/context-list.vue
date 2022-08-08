@@ -15,10 +15,12 @@
 		<ul id="luo">
 			<!-- 新增条目被渲染在这里 -->
 			<!-- contact、social/skill的添加，下面这句代码完成 -->
-			<ListItemInfo v-if="icon" :data="item" v-for="item in arry" :key="item.id" />
+			<ListItemInfo v-if="icon" :beta="alfa" :data="item" v-for="item in arry" :key="item.id" />
 
-			<ListItemEducation :data="item" v-if="title == 'Education'" v-for="item in arry" :key="item.id" />
-			<ListItemExperience :data="item" v-if="title == 'Working Experience'" v-for="item in arry" :key="item.id" />
+			<ListItemEducation :data="item" :beta="alfa" v-if="title == 'Education'" v-for="item in arry" :key="item.id" />
+
+			<ListItemExperience :data="item" :beta="alfa" v-if="title == 'Working Experience'" v-for="item in arry"
+				:key="item.id" />
 
 
 			<!-- detail.vue中传入的ListItemxxx占据了下面的插槽,渲染的是data.js中的默认数据 -->
@@ -115,12 +117,22 @@ export default {
 				var newItem = {}
 			}
 			// console.log(newContact);
-			console.log('before', this.alfa);
+			console.log('add before', this.alfa);
 			this.alfa.unshift(newItem)
-			this.arry.push(newItem);
-			console.log('after', this.alfa);
+			this.arry.unshift(newItem);
+			console.log('add after', this.alfa);
 
 			// console.log('after', this.alfa);
+		},
+		delete() {
+			this.listItem = false
+			console.log('del before', this.beta);
+			// console.log('item', this.item);
+			var index = this.beta.indexOf(this.item);
+			// console.log('index', index);
+			this.beta.splice(index, 1)
+			console.log('del after', this.beta);
+			// this.$emit('deleteitem', this.tolistitem)
 		}
 	}
 }

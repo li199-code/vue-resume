@@ -1,5 +1,6 @@
 <template>
-	<ListItem class="list-item-education" :beta="beta">
+	<ListItem class="list-item-education" :item="data" :beta="beta">
+		<!-- <div>{{ beta }}</div> -->
 		<div class="school">
 			<span contenteditable="true" @input="contentChange('school', $event)" v-html="data.school" />
 		</div>

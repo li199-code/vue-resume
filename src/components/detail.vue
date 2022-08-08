@@ -26,17 +26,17 @@
 				</ContextList> -->
 				<ContextList title="Education" :alfa="defaultData.Education">
 					<ListItemEducation slot="listItem" :data="item" :beta="defaultData.Education"
-						v-for="item in defaultData.Education" :key="item.school" />
+						v-for="item in defaultData.Education" :key="item.key" />
 				</ContextList>
 				<ContextList title="Skills">
 					<ListItemSkill slot="listItem" :data="defaultData.SkillText" />
 				</ContextList>
 				<ContextList title="Working Experience" :alfa="defaultData.WorkingExperience">
 					<ListItemExperience slot="listItem" :beta="defaultData.WorkingExperience"
-						v-for="item in defaultData.WorkingExperience" :data="item" :key="item.compony" />
+						v-for="item in defaultData.WorkingExperience" :data="item" :key="item.key" />
 				</ContextList>
 			</div>
-			<div class="a4line"></div>
+			<div class="a4line"><span>a4 line</span></div>
 		</div>
 		<!-- guide:底部四个说明图片 -->
 		<Guide />
@@ -117,9 +117,6 @@ export default {
 		// 	var data = JSON.parse(localStorage.getItem('demo'))
 		// 	console.log(data);
 		// }
-		deleteitem(param) {
-			param = null
-		}
 	}
 }
 </script>
@@ -194,12 +191,21 @@ p {
 
 	}
 
-
+	// .resume:hover
 	.resume:hover .a4line {
 		display: block;
+		// float: left;
 		border-bottom: 2px dashed #666;
-		margin-top: 1117px;
+		// margin-top: 1117px;
+		height: 1117px;
 		width: 100%;
+		text-align: center;
+
+		span {
+			position: absolute;
+			// margin-top: 1000px;
+			bottom: 0;
+		}
 	}
 
 	.a4line {
